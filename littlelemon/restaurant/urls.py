@@ -6,5 +6,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.home, name='home'),  # this should match a function in views.py
+    path('', views.home, name='home'),
+    path('menu/', views.MenuItemsView.as_view(), name='menu-list'),
+    path('menu/<int:pk>/', views.SingleMenuItemView.as_view(), name='menu-detail'),
+    
 ]
