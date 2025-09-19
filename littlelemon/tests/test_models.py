@@ -1,6 +1,6 @@
 from django.test import TestCase
 from restaurant.models import Menu
-from restaurant.serializers import MenuSerializer
+from restaurant.serializers import MenuItemSerializer
 
 class MenuViewTest(TestCase):
     def setUp(self):
@@ -10,7 +10,7 @@ class MenuViewTest(TestCase):
 
     def test_getall(self):
         menus = Menu.objects.all()
-        serialized_data = MenuSerializer(menus, many=True).data
+        serialized_data = MenuItemSerializer(menus, many=True).data
 
         response = self.client.get("/restaurant/menu/")
 
